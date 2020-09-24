@@ -1,0 +1,10 @@
+Building 32-bit version
+- Open JME, build x86 target
+- Copy the zip from dist to release, and unzip the Bonsai-Windows.zip to Bonsai
+- Compile the NSIS script for the installer (not used for steam)
+
+
+Uploading to Steam:
+cd C:\RootedConceptsLLC\others\steamworks_sdk_136\sdk\tools\ContentBuilder
+run_build.bat
+### Content will be picked up from the 'release/Bonsai' folder above.

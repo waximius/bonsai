@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--linuxlauncher-impl.xml v1.1-->
+<project name="linuxlauncher-impl" basedir="..">
+    <condition property="is_windows">
+        <os family="windows"/>
+    </condition>
+    <target name="-linux-launcher" depends="-test-linux-launcher-enabled" if="is.linux.launcher.enabled" unless="is_windows">
+        <echo>Linux Launcher Creation</echo>
+        <replace file="${dist.dir}/Bonsai.sh" token="JVMARGS" value="${run.jvmargs}"/>
+	<zip destfile="${dist.dir}/${application.title}-Linux-i586.zip">
+            <zipfileset file="${dist.dir}/Bonsai.sh" filemode="755" prefix=""/>
+            <zipfileset file="${dist.jar}" prefix=""/>
+            <zipfileset dir="${dist.dir}/lib" prefix="lib/"/>
+            <zipfileset dir="${dist.dir}/jre" prefix="jre/"/>
+        </zip>
+        <delete file="${application.title}.sh"/>
+    </target>
+    <target name="-test-linux-launcher-enabled">
+        <condition property="is.linux.launcher.enabled">
+            <istrue value="${linux.launcher.enabled}"/>
+        </condition>
+    </target>
+</project>

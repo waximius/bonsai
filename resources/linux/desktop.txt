@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Bonsai
+Exec=Bonsai.sh
+Icon=Icon256.png
+Type=Application
+Categories=GTK;GNOME;Utility;

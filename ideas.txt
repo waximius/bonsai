@@ -1,0 +1,33 @@
+Me
+Move to Unity engine
+
+Tree growth is random, not always the same growth rate
+
+Birds nest in trees 
+
+Weather patterns
+
+Maple tree, oak tree, japanese maple - randomize on new bonsai tree
+
+Scroll in or out centers on whichever branch is highlighted
+
+wasd to rotate
+qe to zoom
+
+invert x and y axis on mouse
+
+Personified tree talks to you in text as the game runs
+
+
+Dave
+DONE - Navigation is a little inconvenient, meaning that getting around the tree takes too many swipes sometimes.  Maybe having a sensitivity adjustment for spin rate would help.
+
+Will there be additional options?  Like leveling up/selling the Bonsai for in-game cash, purchasing different types of clippers.  Maybe wiring the branches so that they grow in a certain direction would be cool.  Also, controlling the cut direction could impact the growth direction of the new branch.  This might make it much too complicated, I don't know.  What about tree types to choose or buy--starting with the Japanese red maple or Juniper and being able to buy lemon or orange trees/Oak with acorns as premium trees?  Also, what about blight?  Maybe random pests that kill a branch or leave a scar or even kills the tree altogether.
+
+DONE - As the tree gets big, it might be good to be able to toggle foliage.  It gets thick quick and would be helpful in choosing the right branch to clip if I could turn off the leaves for a sec or to see the overall tree shape inside.
+
+The save slots could show a rotating tree reflecting the trimmed tree of the game slot--a "your bonsai" avatar as it looks for that slot
+
+
+Mom and Dad
+Music rotation or custom music

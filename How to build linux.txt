@@ -1,0 +1,30 @@
+Building 32-bit version
+cd ~/RootedConcepts/trunk/BonsaiSimulator
+sudo rm -rf ./dist
+Set JRE version to x86 and update build.xml to i586
+Rebuild
+rm -rf ../Bonsai-Linux-i586 
+mkdir ../Bonsai-Linux-i586
+cp -rf ./dist/* ../Bonsai-Linux-i586/
+rm ../Bonsai-Linux-i586/README.TXT
+rm ../Bonsai-Linux-i586/Bonsai-Linux-i586.zip
+chmod +rwx ../Bonsai-Linux-i586/Bonsai.sh
+chmod +rwx ../Bonsai-Linux-i586/Bonsai.jar
+
+
+Building 64-bit version:
+sudo rm -rf ./dist
+Set JRE version to x64 and update build.xml to x64
+Rebuild
+rm -rf ../Bonsai-Linux-x64
+mkdir ../Bonsai-Linux-x64
+cp -rf ./dist/* ../Bonsai-Linux-x64/
+rm  ../Bonsai-Linux-x64/README.TXT
+rm  ../Bonsai-Linux-x64/Bonsai-Linux-i586.zip # i586 is deliberate
+chmod +rwx ../Bonsai-Linux-x64/Bonsai.sh
+chmod +rwx ../Bonsai-Linux-x64/Bonsai.jar
+
+
+Uploading to Steam:
+cd ~/Steam/tools/ContentBuilder
+./run_build.sh
