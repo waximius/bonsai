@@ -1,5 +1,0 @@
-DONE - Recentering the tree is a little hard to do--hard to make it center in the spot you want.  That is a little vague and I might be able to be clearer as I play more--I could get it to center, basically, by turning off the scissors and clicking, but it seemed imprecise.
-
-DONE - When, in game, the settings menu is up with the gameplay screen faded in the background, if you accidentally click in the background on your tree, you cut the tree though it is in the background (if that makes sense).  Maybe locking the game or automatically disabling the scissors on menu would solve that.
-
-DONE - The sound, when muted, turns back on automatically after about 3 minutes.  The audio icon still shows muted, but if you click it twice (enabling and disabling audio) it is muted again.  Maybe when the audio track cycles for loop it automatically re-enables the sound or doesn't honor the mute from previous loop?

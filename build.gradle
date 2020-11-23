@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'application'
+
+
+mainClassName = 'com.rootedconcepts.BonsaiApplication'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation     'junit:junit:4.13'
+    implementation 'com.github.stephengold:SkyControl:0.9.29'
+    implementation 'org.jmonkeyengine:jme3-core:3.3.2-stable'
+    implementation 'org.jmonkeyengine:jme3-desktop:3.3.2-stable'
+    implementation 'org.jmonkeyengine:jme3-lwjgl:3.3.2-stable'
+    implementation 'org.jmonkeyengine:jme3-jogg:3.3.2-stable'
+    implementation 'com.github.nifty-gui:nifty:1.4.3'
+    compile files('steam/steamworks4j/steamworks4j-1.2.3.jar')
+    compile files('resources/jme3/jme3-niftygui.jar')
+}
+
+sourceSets {
+   main {
+      java {
+         srcDir 'src'
+      }
+      resources {
+         srcDir 'Assets'
+      }
+   }
+	
+   test {
+      java {
+         srcDir 'test'
+      }
+   }
+}
