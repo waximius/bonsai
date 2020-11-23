@@ -44,9 +44,10 @@ public abstract class BonsaiTree implements BonsaiTreeInterface, BonsaiTreeJmeIn
     
     private long m_wateredTime = 0;
     
+    private final float M_DEBUG_SPEEDUP = 1.0f; // Use to debug by speeding pu growth of tree.  1.0 = no change in growth speed
     private long MS_UNTIL_GROWTH = (2 * 60 * 60 * 1000) / M_MAX_ROOT_THICKNESS; // grow fully over 2 hours
     private long m_msUntilGrowth = MS_UNTIL_GROWTH;
-    private long WATER_ADJ = (long)(MS_UNTIL_GROWTH * 0.005); // 0.5% faster
+    private long WATER_ADJ = (long)(MS_UNTIL_GROWTH * 0.5); // 5% faster
     
     // The time of the last growth cycle in milliseconds since the epoch
     private long m_lastGrowthCycle = 0;
@@ -143,9 +144,9 @@ public abstract class BonsaiTree implements BonsaiTreeInterface, BonsaiTreeJmeIn
     public float getGrowthCyclePercent () {
         long now = System.currentTimeMillis();
         long lastGrowth = m_lastGrowthCycle;
-        float percent = (float)((double)(now - lastGrowth) / (double)m_msUntilGrowth);
+        float percent = (float)((double)(now - lastGrowth) / getMsUntilGrowth());
         if (m_step < M_TRUNK_HEIGHT) {
-            percent = (float)((double)(now - lastGrowth) / (double)(m_msUntilGrowth/2));
+            percent = (float)((double)(now - lastGrowth) / (getMsUntilGrowth()/2.0));
         }
         return percent;
     }
@@ -180,10 +181,10 @@ public abstract class BonsaiTree implements BonsaiTreeInterface, BonsaiTreeJmeIn
         long now = System.currentTimeMillis();
         // If the last time grow() was called is longer than a growth cycle,
         // then we can grow again.
-        if ((now - m_lastGrowthCycle) > m_msUntilGrowth) {
+        if ((now - m_lastGrowthCycle) > getMsUntilGrowth()) {
             retval = true;
         } else if ((m_step < M_TRUNK_HEIGHT) &&
-            (now - m_lastGrowthCycle) > (m_msUntilGrowth/2)) {
+            (now - m_lastGrowthCycle) > (getMsUntilGrowth()/2.0)) {
             retval = true;
         }
         return retval;
@@ -199,12 +200,12 @@ public abstract class BonsaiTree implements BonsaiTreeInterface, BonsaiTreeJmeIn
     public void catchUpGrowthCycles() {
         long now = System.currentTimeMillis();
         long lastGrowth = m_lastGrowthCycle;
-        while ((now - lastGrowth) > m_msUntilGrowth) {
+        while ((now - lastGrowth) > getMsUntilGrowth()) {
             grow();
             
             // Each loop, increase the last growth cycle timestamp by one growth cycles
             // amount.
-            lastGrowth += m_msUntilGrowth;
+            lastGrowth += (long)getMsUntilGrowth();
         }
     }
     
@@ -317,5 +318,9 @@ public abstract class BonsaiTree implements BonsaiTreeInterface, BonsaiTreeJmeIn
         }
         setTreeNeedsDrawn(false);
         return retval;
+    }
+    
+    private double getMsUntilGrowth () {
+        return ((double)m_msUntilGrowth) / M_DEBUG_SPEEDUP;
     }
 }

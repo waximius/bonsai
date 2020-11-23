@@ -136,7 +136,6 @@ public class BonsaiScreenController extends AbstractAppState implements ScreenCo
         //this is called on the OpenGL thread after the AppState has been detached
     }
 
-    @Override
     public void bind(Nifty nifty, Screen screen) {
         m_nifty = nifty;
         m_screen = screen;
@@ -168,7 +167,6 @@ public class BonsaiScreenController extends AbstractAppState implements ScreenCo
         initSettingsButtons();
     }
 
-    @Override
     public void onStartScreen() {
         m_screen = m_nifty.getCurrentScreen();
         
@@ -209,7 +207,6 @@ public class BonsaiScreenController extends AbstractAppState implements ScreenCo
         }
     }
 
-    @Override
     public void onEndScreen() {
         m_previousScreenId = m_nifty.getCurrentScreen().getScreenId();
         

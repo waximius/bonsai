@@ -164,7 +164,7 @@ public class MapleTextureManager {
         mat.getAdditionalRenderState().setDepthTest(true);
         mat.getAdditionalRenderState().setAlphaTest(true);
         mat.getAdditionalRenderState().setColorWrite(true);
-        mat.setBoolean("UseAlpha",true);
+        //mat.setBoolean("UseAlpha",true);
         mat.setColor("Diffuse", ColorRGBA.White);
         mat.setColor("Specular", ColorRGBA.White);
         mat.setFloat("Shininess", 1f);  // [0,128]

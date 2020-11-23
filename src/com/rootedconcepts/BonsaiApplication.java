@@ -49,9 +49,10 @@ import com.rootedconcepts.tree.sycamore.BonsaiTreeSycamore;
 import com.rootedconcepts.tree.sycamore.SycamoreTextureManager;
 import de.lessvoid.nifty.Nifty;
 import java.util.Calendar;
-import jme3utilities.Misc;
+//import jme3utilities.Misc;
 import jme3utilities.TimeOfDay;
 import jme3utilities.sky.SkyControl;
+import jme3utilities.sky.StarsOption;
 
 /**
  *
@@ -353,7 +354,7 @@ public class BonsaiApplication extends SimpleApplication {
             if (true == REAL_TIME_OF_DAY) {
                 // Update the time each render
                 if ("Day and Night".equals(m_dayNightCycle)) {
-                    float hour = m_timeOfDay.getHour();
+                    float hour = m_timeOfDay.hour();
                     if (hour != sc.getSunAndStars().getHour()) {
                         sc.getSunAndStars().setHour(hour);
                     }
@@ -659,9 +660,9 @@ public class BonsaiApplication extends SimpleApplication {
         //rootNode.addLight(l2);
         
         // Add the sky control, attach lights
-        sc = new SkyControl(assetManager, cam, 0.9f, true, true);
+        sc = new SkyControl(assetManager, cam, 0.9f, StarsOption.Cube, true);
         rootNode.addControl(sc);
-        sc.setCloudYOffset(0.2f);
+        sc.setCloudsYOffset(0.2f);
         sc.getUpdater().setMainLight(sun);
         sc.getUpdater().setAmbientLight(ambient);
         sc.getUpdater().setBloomEnabled(true);
@@ -679,7 +680,7 @@ public class BonsaiApplication extends SimpleApplication {
             stateManager.attach(m_timeOfDay);
             m_timeOfDay.setRate(1f);
             
-            float hour = m_timeOfDay.getHour();
+            float hour = m_timeOfDay.hour();
             sc.getSunAndStars().setHour(hour);
         } else {
             sc.getSunAndStars().setHour(FIXED_HOUR_OF_DAY);
@@ -690,7 +691,7 @@ public class BonsaiApplication extends SimpleApplication {
         //bloom.setBloomIntensity(1.7f);
         bloom.setBlurScale(2.5f);
         bloom.setExposurePower(1f);
-        Misc.getFpp(viewPort, assetManager).addFilter(bloom);
+        //Misc.getFpp(viewPort, assetManager).addFilter(bloom);
         sc.getUpdater().addBloomFilter(bloom);
         
         BloomFilter bloomTree = new BloomFilter(BloomFilter.GlowMode.Objects);
